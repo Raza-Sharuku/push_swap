@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:27:53 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/02 21:01:41 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/03 13:46:15 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	is_same_num(char **list)
 		while (list[i + j])
 		{
 			printf("i = %d : j = %d\n", ft_atoi(list[i]), ft_atoi(list[i + j]));
-			if (ft_atoi(list[i]) == ft_atoi(list[i + j]) && list[i] != '\0')
+			if (ft_atoi(list[i]) == ft_atoi(list[i + j]) && list[i] != 0)
 				return (-1);
 			j++;
 		}
@@ -36,18 +36,22 @@ static int	is_same_num(char **list)
 static int	check_str(char *str)
 {
 	int	i;
+	int	counter;
 
 	i = 0;
+	counter = 0;
 	if (str[i] == ' ' || str[i] == '+' || str[i] == '-')
 		i++;
 	while (str[i])
 	{
-		if (str[i] == ' ')
-			return (1);
-		if ((str[i] < '0' || str[i] > '9') && str[i] != ' ')
+		if (!(str[i] >= '0' && str[i] <= '9') && str[i] != ' ')
 			return (-1);
+		if (str[i] == ' ')
+			counter++;
 		i++;
 	}
+	if (counter != 0)
+		return (1);
 	return (0);
 }
 
@@ -58,6 +62,8 @@ static	int	ft_malloc(char const *argv)
 
 	i = 0;
 	list = ft_split(argv, ' ');
+	if (list[0] == NULL)
+		return (-1);
 	if (is_same_num(list) < 0)
 		return (-1);
 	while (list[i])
@@ -71,9 +77,6 @@ static	int	ft_malloc(char const *argv)
 
 static	int	ft_arg_check(int argc, char *argv[], int counter)
 {
-	int	i;
-
-	i = 0;
 	if (counter == 1 && ft_malloc(argv[1]) < 0)
 		return (-1);
 	else if (argc > 2 && is_same_num(argv))
