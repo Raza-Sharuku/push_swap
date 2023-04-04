@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:27:53 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/04 11:08:23 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/04 21:24:21 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
+/* printf("i = %ld : j = %ld\n", ft_atoi_swap(list[i]), 
+ft_atoi_swap(list[i + j]));
+*/
 static int	is_same_num(char **list)
 {
 	int	i;
@@ -23,11 +26,13 @@ static int	is_same_num(char **list)
 		j = 1;
 		while (list[i + j])
 		{
-			printf("i = %d : j = %d\n", ft_atoi(list[i]), ft_atoi(list[i + j]));
-			if (ft_atoi(list[i]) == ft_atoi(list[i + j]) && list[i] != 0)
+			if (ft_atoi_swap(list[i]) == ft_atoi_swap(list[i + j])
+				&& list[i] != 0)
 				return (-1);
 			j++;
 		}
+		if (ft_atoi_swap(list[i]) > (long)INT_MAX)
+			return (-1);
 		i++;
 	}
 	return (0);
@@ -50,13 +55,12 @@ static int	check_str(char *str)
 	w_counter = 0;
 	while (str[i])
 	{
+		if (str[i] >= '0' && str[i] <= '9')
+			w_counter++;
 		if (str[i] == ' ')
 			counter++;
-		else if (str[i] >= '0' && str[i] <= '9')
-			w_counter++;
-		if (str[i] == ' ' || str[i] == '+' || str[i] == '-')
-			i++;
-		else if (!(str[i] >= '0' && str[i] <= '9') && str[i] != ' ')
+		if (!(str[i] >= '0' && str[i] <= '9') && (str[i] != ' '
+				&& str[i] != '-' && str[i] != '+'))
 			return (-1);
 		i++;
 	}
@@ -110,10 +114,10 @@ static	int	ft_arg_check(int argc, char *argv[], int counter)
 int	ft_error_check(int argc, char *argv[])
 {
 	int	i;
-	int	counter;
+	int	s_counter;
 
 	i = 1;
-	counter = 0;
+	s_counter = 0;
 	while (argv[i] && i < argc)
 	{
 		if (argv[i][0] == 0)
@@ -121,12 +125,13 @@ int	ft_error_check(int argc, char *argv[])
 		if (check_str(argv[i]) < 0)
 			return (-1);
 		if (check_str(argv[i]) == 1)
-			counter++;
-		if (counter == 1 && argv[i + 1])
+			s_counter++;
+		if (s_counter == 1 && argv[i + 1])
 			return (-1);
 		i++;
 	}
-	if (ft_arg_check(argc, argv, counter) < 0)
+	printf("before arg check\n");
+	if (ft_arg_check(argc, argv, s_counter) < 0)
 		return (-1);
 	return (0);
 }

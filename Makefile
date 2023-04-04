@@ -6,7 +6,7 @@
 #    By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/19 10:38:14 by razasharuku       #+#    #+#              #
-#    Updated: 2023/04/02 12:36:00 by sraza            ###   ########.fr        #
+#    Updated: 2023/04/04 21:12:06 by sraza            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ INC		=	-I./libs/libft/ -I./libs/ft_printf/
 
 SRCS	=	push_swap.c \
 			sort.c \
-			ft_error.c 
+			ft_error.c \
+			ft_atoi_4_swap.c 
 
 OBJS = ${SRCS:%.c=%.o}
 

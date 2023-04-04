@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:26:29 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/02 11:58:37 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/04 21:10:47 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@
 
 int 			main(int argc, char *argv[]);
 int				ft_error_check(int argc, char *argv[]);
+long	        ft_atoi_swap(const char *str);
 
 #endif
