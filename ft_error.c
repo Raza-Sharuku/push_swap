@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:27:53 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/03 13:46:15 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/04 11:08:23 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,42 @@ static int	is_same_num(char **list)
 	return (0);
 }
 
+/*ここでは送られてきた配列のそれぞれに対して中身のエラーがないかを判定する。
+判定内容
+1 空白、＋ーがあった場合は飛ばす
+２　
+
+　*/
 static int	check_str(char *str)
 {
 	int	i;
 	int	counter;
+	int	w_counter;
 
 	i = 0;
 	counter = 0;
-	if (str[i] == ' ' || str[i] == '+' || str[i] == '-')
-		i++;
+	w_counter = 0;
 	while (str[i])
 	{
-		if (!(str[i] >= '0' && str[i] <= '9') && str[i] != ' ')
-			return (-1);
 		if (str[i] == ' ')
 			counter++;
+		else if (str[i] >= '0' && str[i] <= '9')
+			w_counter++;
+		if (str[i] == ' ' || str[i] == '+' || str[i] == '-')
+			i++;
+		else if (!(str[i] >= '0' && str[i] <= '9') && str[i] != ' ')
+			return (-1);
 		i++;
 	}
+	if (w_counter == 0)
+		return (-1);
 	if (counter != 0)
 		return (1);
 	return (0);
 }
+
+/*ここでは１つ文字列にたくさんの数字が入っているものをMallocしてそれぞれの数に分ける。
+そして２次元配列になったものを次に判定式に渡してエラー値を返す　*/
 
 static	int	ft_malloc(char const *argv)
 {
@@ -75,11 +90,15 @@ static	int	ft_malloc(char const *argv)
 	return (0);
 }
 
+/*ここでは１つ文字列にたくさんの数字が貼っているものなの中でスペースだけのものを弾く
+複数の引数として貰えているのかを判定する。
+それぞれの関数に渡して返り値に応じてエラーの反応を返す　*/
+
 static	int	ft_arg_check(int argc, char *argv[], int counter)
 {
 	if (counter == 1 && ft_malloc(argv[1]) < 0)
 		return (-1);
-	else if (argc > 2 && is_same_num(argv))
+	if (argc > 2 && is_same_num(argv))
 		return (-1);
 	return (0);
 }
