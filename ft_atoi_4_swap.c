@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_4_swap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 20:54:47 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/04 21:15:03 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/05 11:09:28 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ long	ft_atoi_swap(const char *str)
 	{
 		if ((*str == '+' || *str == '-')
 			&& (*(str + 1) == '+' || *(str + 1) == '-'))
-			return (0);
+			return ((long)INT_MAX + 1);
 		else if (*str == '-')
 			sign = sign * (-1);
 		str++;
@@ -80,4 +80,20 @@ long	ft_atoi_swap(const char *str)
 	if (num > INT_MAX || num < INT_MIN)
 		return ((long)INT_MAX + 1);
 	return (num);
+}
+
+void	*ft_free_swap(char **result)
+{
+	size_t	i;
+
+	i = 0;
+	while (result[i] != NULL)
+	{
+		free(result[i]);
+		result[i] = NULL;
+		i++;
+	}
+	free(result);
+	result[i] = NULL;
+	return (NULL);
 }

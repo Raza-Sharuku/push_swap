@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:27:53 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/04 21:24:21 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/05 11:21:59 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,34 +40,32 @@ static int	is_same_num(char **list)
 
 /*ここでは送られてきた配列のそれぞれに対して中身のエラーがないかを判定する。
 判定内容
-1 空白、＋ーがあった場合は飛ばす
-２　
-
+1 空白、＋ー数字以外があった場合はエラー
+2 二次元リストを作成して、配列が空白のみのときエラー
+3 配列の中身が２つ以上の時、1を返す（受け取り側で引数がさらにある時はエラー）　
 　*/
 static int	check_str(char *str)
 {
-	int	i;
-	int	counter;
-	int	w_counter;
+	int		i;
+	char	**list;
 
 	i = 0;
-	counter = 0;
-	w_counter = 0;
 	while (str[i])
 	{
-		if (str[i] >= '0' && str[i] <= '9')
-			w_counter++;
-		if (str[i] == ' ')
-			counter++;
 		if (!(str[i] >= '0' && str[i] <= '9') && (str[i] != ' '
 				&& str[i] != '-' && str[i] != '+'))
 			return (-1);
 		i++;
 	}
-	if (w_counter == 0)
+	list = ft_split(str, ' ');
+	if (list[0] == NULL)
 		return (-1);
-	if (counter != 0)
+	i = 0;
+	while (list[i])
+		i++;
+	if ((i - 1) >= 1)
 		return (1);
+	ft_free_swap(list);
 	return (0);
 }
 
