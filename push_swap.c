@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/03 13:25:46 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/05 11:28:10 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ int main (int argc, char *argv[])
 		printf("%s\n",argv[i]);
 		i++;
 	}
+	system("leaks push_swap");
 	return (0);
 }
