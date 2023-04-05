@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:27:53 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/05 11:30:10 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/05 12:17:02 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ static	int	ft_malloc(char const *argv)
 		i++;
 	}
 	printf("finished the split !!\n");
+	ft_free_swap(list);
 	return (0);
 }
 
