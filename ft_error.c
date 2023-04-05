@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:27:53 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/05 12:17:02 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/05 17:52:32 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ static int	check_str(char *str)
 			return (-1);
 		i++;
 	}
+	if (ft_atoi_swap(str) > (long)INT_MAX)
+		return (-1);
 	list = ft_split(str, ' ');
 	if (list[0] == NULL)
 		return (-1);
@@ -129,7 +131,7 @@ int	ft_error_check(int argc, char *argv[])
 			return (-1);
 		i++;
 	}
-	printf("before arg check\n");
+	// printf("before arg check\n");
 	if (ft_arg_check(argc, argv, s_counter) < 0)
 		return (-1);
 	return (0);
