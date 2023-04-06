@@ -6,28 +6,28 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/05 17:49:16 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/06 17:28:44 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-
-/*ここのエラーチェックで問題がないということは残る判定は
-1 argcが2の時で一つの引数に複数の数字が入っている場合に数値をどう受け取るか
-2 argcが3以上で単発の数字が複数入っている場合に数値をどう受け取るか
-の二つのみなる。
-それぞれの場合分けをして構造体のデータに格納できるようにする必要がある。
+/* if arguments clear error_check, it means arguments can use for this program and then my next step is divide in two case. 
+1 How to recieve numbers when argc is 2 and argument contains multipule numbers.
+-> This can be solve by whether argc is 2 or not.
+2 How to receive numbers when argc is more than 3 and all of them are single-shot numbers.
+->This can be determined by whether argc is more than 3 or not.
+Then, pass the each case to a function to handle.
 */
+
 int main (int argc, char *argv[])
 {
 	int	i;
-	
-	i = 0;
+
 	if (ft_error_check(argc, argv) < 0)
 	{
-		printf("Error");
-		return (0);
+		printf("Error\n");
+		return (1);
 	}
 	i = 1;
 	while (argv[i])
@@ -38,3 +38,7 @@ int main (int argc, char *argv[])
 	// system("leaks push_swap");
 	return (0);
 }
+
+/*
+
+*/
