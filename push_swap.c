@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/06 17:28:44 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/07 11:16:08 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,18 @@ Then, pass the each case to a function to handle.
 int main (int argc, char *argv[])
 {
 	int	i;
+	int	*stack;
+
 
 	if (ft_error_check(argc, argv) < 0)
+		return (0);
+	stack = ft_makelist(argc, argv);
+	i = 0;
+	while (i < 15)
 	{
-		printf("Error\n");
-		return (1);
-	}
-	i = 1;
-	while (argv[i])
-	{
-		printf("%s\n",argv[i]);
+		ft_printf("%i\n",stack[i]);
 		i++;
 	}
 	// system("leaks push_swap");
 	return (0);
 }
-
-/*
-
-*/

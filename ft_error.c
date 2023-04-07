@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:27:53 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/05 17:52:32 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/07 11:15:52 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,10 @@ static	int	ft_malloc(char const *argv)
 		return (-1);
 	while (list[i])
 	{
-		printf("%s\n", list[i]);
+		printf("%s ,", list[i]);
 		i++;
 	}
-	printf("finished the split !!\n");
+	printf("\n");
 	ft_free_swap(list);
 	return (0);
 }
@@ -131,8 +131,10 @@ int	ft_error_check(int argc, char *argv[])
 			return (-1);
 		i++;
 	}
-	// printf("before arg check\n");
 	if (ft_arg_check(argc, argv, s_counter) < 0)
+	{
+		ft_printf("Error\n");
 		return (-1);
+	}
 	return (0);
 }
