@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/08 18:07:33 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/08 20:25:24 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int ft_error(int i)
 int main (int argc, char *argv[])
 {
 	int		i;
-	int		j;
 	t_stack	stack;
 
 	if (ft_error_check(argc, argv, &stack) < 0)
@@ -43,7 +42,7 @@ int main (int argc, char *argv[])
 		i++;
 	}
 	i = 0;
-	j = compress_array(&stack);
+	stack.stack = compress_array(&stack);
 	while (i < stack.len)
 	{
 		ft_printf("%i , ",stack.stack[i]);

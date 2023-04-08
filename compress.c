@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 09:39:43 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/08 18:07:03 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/08 20:25:02 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ static	int	*change_positoin(t_stack *stack, int *position)
 	printf("\n------------- change the position -----------------\n\n");
 	i = -1;
 	while (++i < stack->len)
-		ft_printf("%i , ",position[i]);
+		ft_printf("%i , ", position[i]);
 	return (position);
 }
 
-int	compress_array(t_stack *stack)
+int	*compress_array(t_stack *stack)
 {
 	int	i;
 	int	*position;
@@ -71,8 +71,8 @@ int	compress_array(t_stack *stack)
 	while (++i < stack->len)
 		position[i] = stack->stack[i];
 	position = change_positoin(stack, position);
-	printf("\n------------- after compress -----------------\n\n");
+	printf("\n\n------------- after compress -----------------\n");
 	stack->stack = change_array_position(stack, position);
 	free(position);
-	return (0);
+	return (stack->stack);
 }
