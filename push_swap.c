@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/06 21:27:55 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/08 12:11:38 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,25 +44,20 @@ char	**ft_makelist(int argc, char *argv[])
 
 int main (int argc, char *argv[])
 {
-	int	i;
-	char **list;
+	int		i;
+	int	*stack;
 
+	stack = NULL;
 	if (ft_error_check(argc, argv) < 0)
+		return (0);
+	stack = ft_makelist(argc, argv);
+	ft_printf("----------------------------------------------------------\n\n");
+	i = 0;
+	while (i < 5)
 	{
-		printf("Error\n");
-		return (1);
-	}
-	list = ft_makelist(argc, argv);
-	i = 1;
-	while (list[i])
-	{
-		printf("%s\n",list[i]);
+		ft_printf("%i\n",stack[i]);
 		i++;
 	}
 	// system("leaks push_swap");
 	return (0);
 }
-
-/*
-
-*/
