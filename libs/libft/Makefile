@@ -6,7 +6,7 @@
 #    By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 16:42:18 by sraza             #+#    #+#              #
-#    Updated: 2023/02/05 15:32:30 by sraza            ###   ########.fr        #
+#    Updated: 2023/04/08 14:47:16 by sraza            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,9 +63,7 @@ OBJS_B = ${SRCS_B:.c=.o}
 
 ALL_OBJS = ${OBJS}
 
-ifdef bonus_flag
-	ALL_OBJS+=${OBJS_B}
-endif
+ALL_OBJS+=${OBJS_B}
 
 all:	$(NAME)
 

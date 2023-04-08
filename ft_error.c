@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:27:53 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/07 11:15:52 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/08 14:36:07 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 /* printf("i = %ld : j = %ld\n", ft_atoi_swap(list[i]), 
 ft_atoi_swap(list[i + j]));
 */
-static int	is_same_num(char **list)
+static int	is_same_num(char **list, t_stack *stack)
 {
 	int	i;
 	int	j;
 
 	i = 0;
+	stack->stack = (int *)malloc((sizeof (int)) * (stack->len));
 	while (list[i])
 	{
 		j = 1;
@@ -33,6 +34,7 @@ static int	is_same_num(char **list)
 		}
 		if (ft_atoi_swap(list[i]) > (long)INT_MAX)
 			return (-1);
+		stack->stack[i] = ft_atoi_swap(list[i]);
 		i++;
 	}
 	return (0);
@@ -74,7 +76,7 @@ static int	check_str(char *str)
 /*ここでは１つ文字列にたくさんの数字が入っているものをMallocしてそれぞれの数に分ける。
 そして２次元配列になったものを次に判定式に渡してエラー値を返す　*/
 
-static	int	ft_malloc(char const *argv)
+static	int	ft_malloc(char const *argv, t_stack *stack)
 {
 	int		i;
 	char	**list;
@@ -83,14 +85,11 @@ static	int	ft_malloc(char const *argv)
 	list = ft_split(argv, ' ');
 	if (list[0] == NULL)
 		return (-1);
-	if (is_same_num(list) < 0)
-		return (-1);
 	while (list[i])
-	{
-		printf("%s ,", list[i]);
 		i++;
-	}
-	printf("\n");
+	stack->len = i;
+	if (is_same_num(list, stack) < 0)
+		return (-1);
 	ft_free_swap(list);
 	return (0);
 }
@@ -99,11 +98,12 @@ static	int	ft_malloc(char const *argv)
 複数の引数として貰えているのかを判定する。
 それぞれの関数に渡して返り値に応じてエラーの反応を返す　*/
 
-static	int	ft_arg_check(int argc, char *argv[], int counter)
+static	int	ft_arg_check(int argc, char *argv[], int counter, t_stack *stack)
 {
-	if (counter == 1 && ft_malloc(argv[1]) < 0)
+	stack->len = argc - 1;
+	if (counter == 1 && ft_malloc(argv[1], stack) < 0)
 		return (-1);
-	if (argc > 2 && is_same_num(argv))
+	if (argc > 2 && is_same_num(argv, stack))
 		return (-1);
 	return (0);
 }
@@ -112,7 +112,7 @@ static	int	ft_arg_check(int argc, char *argv[], int counter)
 スペースが二回以上あったらエラーを出す。→引数の中に複数の数字があるものはエラー
 また、複数の値を持つ引数１と次に引数が””だった場合はエラー
 */
-int	ft_error_check(int argc, char *argv[])
+int	ft_error_check(int argc, char *argv[], t_stack *stack)
 {
 	int	i;
 	int	s_counter;
@@ -131,10 +131,7 @@ int	ft_error_check(int argc, char *argv[])
 			return (-1);
 		i++;
 	}
-	if (ft_arg_check(argc, argv, s_counter) < 0)
-	{
-		ft_printf("Error\n");
+	if (ft_arg_check(argc, argv, s_counter, stack) < 0)
 		return (-1);
-	}
 	return (0);
 }
