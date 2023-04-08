@@ -6,7 +6,7 @@
 #    By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/19 10:38:14 by razasharuku       #+#    #+#              #
-#    Updated: 2023/04/08 12:57:47 by sraza            ###   ########.fr        #
+#    Updated: 2023/04/08 17:14:03 by sraza            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,9 @@ CFLAGS	=	-Wall -Wextra -Werror
 INC		=	-I./libs/libft/ -I./libs/ft_printf/
 
 SRCS	=	push_swap.c \
-			sort.c \
 			ft_error.c \
 			ft_atoi_4_swap.c \
-			# ft_makelist.c
+			compress.c
 
 OBJS = ${SRCS:%.c=%.o}
 

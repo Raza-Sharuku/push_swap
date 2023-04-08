@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:27:53 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/08 14:36:07 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/08 17:41:28 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	is_same_num(char **list, t_stack *stack)
 
 	i = 0;
 	stack->stack = (int *)malloc((sizeof (int)) * (stack->len));
-	while (list[i])
+	while (list[i] && i < stack->len)
 	{
 		j = 1;
 		while (list[i + j])
@@ -103,7 +103,7 @@ static	int	ft_arg_check(int argc, char *argv[], int counter, t_stack *stack)
 	stack->len = argc - 1;
 	if (counter == 1 && ft_malloc(argv[1], stack) < 0)
 		return (-1);
-	if (argc > 2 && is_same_num(argv, stack))
+	if (argc > 2 && is_same_num(&argv[1], stack))
 		return (-1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 20:54:47 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/08 14:27:32 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/08 17:02:17 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,6 @@ void	*ft_free_swap(char **result)
 		i++;
 	}
 	free(result);
-	result[i] = NULL;
+	result = NULL;
 	return (NULL);
 }
