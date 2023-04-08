@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/08 12:11:38 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/08 12:17:06 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,28 +19,6 @@
 ->This can be determined by whether argc is more than 3 or not.
 Then, pass the each case to a function to handle.
 */
-
-char	**ft_makelist(int argc, char *argv[])
-{
-	char	**list;
-	int		i;
-
-	i = 0;
-	if (argc == 2)
-		list = ft_split(argv[1], ' ');
-	
-	if (argc > 2)
-	{
-		list = malloc(sizeof(char *) * (argc));
-		while (i < argc - 1)
-		{
-			list[i] = argv[i + 1];
-			i++;
-		}
-		list[i] = NULL;
-	}
-	return (list);
-}
 
 int main (int argc, char *argv[])
 {

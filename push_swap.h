@@ -6,11 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:26:29 by sraza             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/04/06 21:28:01 by sraza            ###   ########.fr       */
-=======
-/*   Updated: 2023/04/07 12:40:40 by razasharuku      ###   ########.fr       */
->>>>>>> 8a45ff35089ef2b788edda285aea659cb2a26be2
+/*   Updated: 2023/04/08 12:21:10 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +22,17 @@
 #include"./libs/libft/libft.h"
 
 
-// typedef struct	s_stack
-// {
-// 	int	*stack;
-// 	int	len;
-// }				t_stack;
+typedef struct	s_stack
+{
+	int	*stack;
+	int	len;
+}				t_stack;
 int 			main(int argc, char *argv[]);
 int				ft_error_check(int argc, char *argv[]);
-<<<<<<< HEAD
-long	        ft_atoi_swap(const char *str);
-void	        *ft_free_swap(char **result);
-char 	        **ft_makelist(int argc, char *argv[]);
-=======
 long			ft_atoi_swap(const char *str);
 void			*ft_free_swap(char **result);
 int				*ft_makelist_argc2(char *argv[]);
 int				*ft_makelist_argc3(int argc, char *argv[]);
 int				*ft_makelist(int argc, char *argv[]);
->>>>>>> 8a45ff35089ef2b788edda285aea659cb2a26be2
 
 #endif
