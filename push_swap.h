@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:26:29 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/05 11:10:37 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/06 21:28:01 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,6 @@ int 			main(int argc, char *argv[]);
 int				ft_error_check(int argc, char *argv[]);
 long	        ft_atoi_swap(const char *str);
 void	        *ft_free_swap(char **result);
+char 	        **ft_makelist(int argc, char *argv[]);
+
 #endif

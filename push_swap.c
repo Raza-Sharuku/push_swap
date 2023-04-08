@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/06 17:28:44 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/06 21:27:55 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,43 @@
 Then, pass the each case to a function to handle.
 */
 
+char	**ft_makelist(int argc, char *argv[])
+{
+	char	**list;
+	int		i;
+
+	i = 0;
+	if (argc == 2)
+		list = ft_split(argv[1], ' ');
+	
+	if (argc > 2)
+	{
+		list = malloc(sizeof(char *) * (argc));
+		while (i < argc - 1)
+		{
+			list[i] = argv[i + 1];
+			i++;
+		}
+		list[i] = NULL;
+	}
+	return (list);
+}
+
 int main (int argc, char *argv[])
 {
 	int	i;
+	char **list;
 
 	if (ft_error_check(argc, argv) < 0)
 	{
 		printf("Error\n");
 		return (1);
 	}
+	list = ft_makelist(argc, argv);
 	i = 1;
-	while (argv[i])
+	while (list[i])
 	{
-		printf("%s\n",argv[i]);
+		printf("%s\n",list[i]);
 		i++;
 	}
 	// system("leaks push_swap");
