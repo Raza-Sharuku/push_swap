@@ -6,46 +6,46 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 09:39:43 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/09 14:43:03 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/09 15:10:00 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-static	int	*change_array_position(t_stack *stack, int *position)
+static	int	*change_array_position(t_array *array, int *position)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < stack->len)
+	while (i < array->len)
 	{
 		j = 0;
-		while (j < stack->len)
+		while (j < array->len)
 		{
-			if (stack->stack[i] == position[j])
+			if (array->array[i] == position[j])
 			{
-				stack->stack[i] = j + 1;
+				array->array[i] = j + 1;
 				break ;
 			}
 			j++;
 		}
 		i++;
 	}
-	return (stack->stack);
+	return (array->array);
 }
 
-static	int	*change_positoin(t_stack *stack, int *position)
+static	int	*change_positoin(t_array *array, int *position)
 {
 	int	i;
 	int	j;
 	int	tmp;
 
 	i = 0;
-	while (i < stack->len)
+	while (i < array->len)
 	{
 		j = 1;
-		while (i + j < stack->len)
+		while (i + j < array->len)
 		{
 			if (position[i] > position[i + j])
 			{
@@ -59,23 +59,23 @@ static	int	*change_positoin(t_stack *stack, int *position)
 	}
 	printf("\n------------- change the position -----------------\n\n");
 	i = -1;
-	while (++i < stack->len)
+	while (++i < array->len)
 		ft_printf("%i , ", position[i]);
 	return (position);
 }
 
-int	*compress_array(t_stack *stack)
+int	*compress_array(t_array *array)
 {
 	int	i;
 	int	*position;
 
 	i = -1;
-	position = (int *)malloc(sizeof(int) * (stack->len));
-	while (++i < stack->len)
-		position[i] = stack->stack[i];
-	position = change_positoin(stack, position);
+	position = (int *)malloc(sizeof(int) * (array->len));
+	while (++i < array->len)
+		position[i] = array->array[i];
+	position = change_positoin(array, position);
 	printf("\n\n------------- after compress -----------------\n");
-	stack->stack = change_array_position(stack, position);
+	array->array = change_array_position(array, position);
 	free(position);
-	return (stack->stack);
+	return (array->array);
 }

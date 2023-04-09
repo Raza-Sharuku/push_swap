@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/09 14:49:47 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/09 15:18:42 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,29 +35,29 @@ int	ft_error(int i)
 int	main(int argc, char *argv[])
 {
 	int			i;
-	t_stack		stack;
+	t_array		array;
 	t_S_list	*head;
 
-	if (ft_error_check(argc, argv, &stack) < 0)
+	if (ft_error_check(argc, argv, &array) < 0)
 		return (ft_error(1));
 	i = 0;
-	printf("\n----- start value of stack -> stack -----\n\n");
-	while (i < stack.len)
+	printf("\n----- start value of array -> array -----\n\n");
+	while (i < array.len)
 	{
-		ft_printf("%i , ", stack.stack[i]);
+		ft_printf("%i , ", array.array[i]);
 		i++;
 	}
 	i = 0;
-	stack.stack = compress_array(&stack);
-	while (i < stack.len)
+	array.array = compress_array(&array);
+	while (i < array.len)
 	{
-		ft_printf("%i , ", stack.stack[i]);
+		ft_printf("%i , ", array.array[i]);
 		i++;
 	}
-	head = ft_makelist(&stack);
+	head = ft_makelist(&array);
 	i = 0;
 	printf("\n------- checking list -------\n\n");
-	while (i < stack.len)
+	while (i < array.len)
 	{
 		printf("head_point[%i] = %p\n", i, head);
 		printf("head->value[%i] = %i\n", i, head->value);
@@ -66,6 +66,6 @@ int	main(int argc, char *argv[])
 		head = head->next;
 		i++;
 	}
-	system("leaks push_swap");
+	// system("leaks push_swap");
 	return (0);
 }

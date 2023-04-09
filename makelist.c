@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:20:32 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/09 14:42:24 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/09 15:11:57 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,20 @@ t_S_list	*ft_newlst(int value)
 	return (new);
 }
 
-t_S_list	*ft_makelist(t_stack *stack)
+t_S_list	*ft_makelist(t_array *array)
 {
 	t_S_list	*top;
 	t_S_list	*node;
 	t_S_list	*new;
 	int			i;
 
-	top = ft_newlst(stack->stack[0]);
-	node = ft_newlst(stack->stack[1]);
+	top = ft_newlst(array->array[0]);
+	node = ft_newlst(array->array[1]);
 	top->next = node;
 	i = 2;
-	while (i < stack->len)
+	while (i < array->len)
 	{
-		new = ft_newlst(stack->stack[i]);
+		new = ft_newlst(array->array[i]);
 		node->next = new;
 		node = new;
 		i++;
