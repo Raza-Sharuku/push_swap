@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   compress.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 09:39:43 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/09 15:10:00 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/09 20:10:44 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ int	*compress_array(t_array *array)
 
 	i = -1;
 	position = (int *)malloc(sizeof(int) * (array->len));
+	if (position == NULL)
+		free(position);
 	while (++i < array->len)
 		position[i] = array->array[i];
 	position = change_positoin(array, position);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:27:53 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/09 15:11:24 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/09 21:15:35 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static int	is_same_num(char **list, t_array *array)
 
 	i = 0;
 	array->array = (int *)malloc((sizeof (int)) * (array->len));
+	if (array->array == NULL)
+		return (-1);
 	while (list[i] && i < array->len)
 	{
 		j = 1;
@@ -89,7 +91,10 @@ static	int	ft_malloc(char const *argv, t_array *array)
 		i++;
 	array->len = i;
 	if (is_same_num(list, array) < 0)
+	{
+		ft_free_swap(list);
 		return (-1);
+	}
 	ft_free_swap(list);
 	return (0);
 }
