@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+         #
+#    By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/19 10:38:14 by razasharuku       #+#    #+#              #
-#    Updated: 2023/04/08 20:20:32 by sraza            ###   ########.fr        #
+#    Updated: 2023/04/09 11:35:56 by razasharuku      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ INC		=	-I./libs/libft/ -I./libs/ft_printf/
 SRCS	=	push_swap.c \
 			ft_error.c \
 			ft_atoi_4_swap.c \
-			compress.c
+			compress.c \
+			makelist.c
 
 OBJS = ${SRCS:%.c=%.o}
 

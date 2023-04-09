@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/08 20:25:24 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/09 14:40:26 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ int ft_error(int i)
 
 int main (int argc, char *argv[])
 {
-	int		i;
-	t_stack	stack;
+	int			i;
+	t_stack		stack;
+	t_S_list	*head;
 
 	if (ft_error_check(argc, argv, &stack) < 0)
 		return (ft_error(1));
@@ -48,6 +49,18 @@ int main (int argc, char *argv[])
 		ft_printf("%i , ",stack.stack[i]);
 		i++;
 	}
-	// system("leaks push_swap");
+	head = ft_makelist(&stack);
+	i = 0;
+	printf("\n------------- checking list -----------------\n\n");
+		while (i < stack.len)
+	{
+		printf("head_point[%i] = %p\n", i, head);
+		printf("head->value[%i] = %i\n", i, head->value);
+		printf("head.next[%i] = %p\n", i, head->next);
+		printf("\n------------- next list -----------------\n\n");
+		head = head->next;
+		i++;
+	}
+	system("leaks push_swap");
 	return (0);
 }

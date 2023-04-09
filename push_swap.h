@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:26:29 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/08 20:25:44 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/09 11:33:41 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,19 @@ typedef struct	s_stack
 	int	*stack;
 	int	len;
 }				t_stack;
+typedef struct	s_S_list
+{
+	int					value;
+	struct	s_S_list	*next;
+}				t_S_list;
 int 			main(int argc, char *argv[]);
 int				ft_error_check(int argc, char *argv[], t_stack *stack);
 long			ft_atoi_swap(const char *str);
 void			*ft_free_swap(char **result);
 int				*ft_makelist_argc2(char *argv[]);
 int				*ft_makelist_argc3(int argc, char *argv[]);
-int				*ft_makelist(int argc, char *argv[]);
 int				*compress_array(t_stack *stack);
-
-
+t_S_list		*ft_makelist(t_stack *stack);
+t_S_list		*ft_newlst(int value);
 
 #endif
