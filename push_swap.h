@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:26:29 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/09 11:33:41 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/09 14:45:35 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,20 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <limits.h>
-#include"./libs/ft_printf/ft_printf.h"
-#include"./libs/libft/libft.h"
+# include"./libs/ft_printf/ft_printf.h"
+# include"./libs/libft/libft.h"
 
-
-typedef struct	s_stack
+typedef struct s_stack
 {
 	int	*stack;
 	int	len;
 }				t_stack;
-typedef struct	s_S_list
+typedef struct s_S_list
 {
-	int					value;
-	struct	s_S_list	*next;
+	int				value;
+	struct s_S_list	*next;
 }				t_S_list;
-int 			main(int argc, char *argv[]);
+int				main(int argc, char *argv[]);
 int				ft_error_check(int argc, char *argv[], t_stack *stack);
 long			ft_atoi_swap(const char *str);
 void			*ft_free_swap(char **result);

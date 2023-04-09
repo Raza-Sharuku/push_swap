@@ -6,10 +6,8 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 11:27:17 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/07 11:27:31 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/09 14:44:00 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
-
-

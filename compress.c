@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 09:39:43 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/09 10:16:56 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/09 14:43:03 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static	int	*change_array_position(t_stack *stack, int *position)
 			if (stack->stack[i] == position[j])
 			{
 				stack->stack[i] = j + 1;
-				break;
+				break ;
 			}
 			j++;
 		}
