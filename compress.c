@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   compress.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 09:39:43 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/08 20:25:02 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/09 10:16:56 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ static	int	*change_array_position(t_stack *stack, int *position)
 		while (j < stack->len)
 		{
 			if (stack->stack[i] == position[j])
+			{
 				stack->stack[i] = j + 1;
+				break;
+			}
 			j++;
 		}
 		i++;
