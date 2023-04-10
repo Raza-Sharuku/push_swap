@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/10 14:45:28 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/10 18:50:37 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ int check_array(t_array *array)
 	i = 0;
 	while (i < array->len)
 	{
-		printf(" %i , ", array->array[i]);
 		if (i == array->flag_ab)
 			printf(" | ");
+		printf(" %i , ", array->array[i]);
 		i++;
 	}
 	printf("\n");
@@ -77,15 +77,15 @@ int	main(int argc, char *argv[])
 		i++;
 	}
 	printf("\n\n------------- after push -----------------\n");
-	array.flag_ab = array.len - 1;
+	array.flag_ab = 0;
 	i = check_array(&array);
-	push_a(&array);
+	push_b(&array);
 	i = check_array(&array);
-	push_a(&array);
+	push_b(&array);
 	i = check_array(&array);
 	swap_ab(&array);
 	i = check_array(&array);
-	push_b(&array);
+	push_a(&array);
 	i = check_array(&array);
 	return (0);
 }
