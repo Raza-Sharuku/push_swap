@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/09 21:19:06 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/10 14:45:28 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,73 +31,75 @@ void	ft_error(void)
 	exit(1);
 }
 
-int	main(int argc, char *argv[])
+// __attribute__((destructor))
+// void    destructor(void)
+// {
+// 	system("leaks -q push_swap");
+
+// }
+
+int check_array(t_array *array)
 {
-	t_array		array;
-	t_S_list	*head;
+	int i;
 
-	array.array = NULL;
-	if (ft_error_check(argc, argv, &array) < 0)
+	i = 0;
+	while (i < array->len)
 	{
-		free(array.array);
-		ft_error();
+		printf(" %i , ", array->array[i]);
+		if (i == array->flag_ab)
+			printf(" | ");
+		i++;
 	}
-	array.array = compress_array(&array);
-	head = ft_makelist(&array);
-
-	free(array.array);
-	while (head)
-	{
-		free(head);
-		head = head->next;
-	}
-	// system("leaks push_swap");
+	printf("\n");
 	return (0);
 }
 
-__attribute__((destructor))
-void    destructor(void)
+int	main(int argc, char *argv[])
 {
-	system("leaks -q push_swap");
+	int			i;
+	t_array		array;
 
+	if (ft_error_check(argc, argv, &array) < 0)
+		ft_error();
+	i = 0;
+	printf("\n----- start value of array -> array -----\n\n");
+	while (i < array.len)
+	{
+		ft_printf("%i , ", array.array[i]);
+		i++;
+	}
+	i = 0;
+	array.array = compress_array(&array);
+	printf("\n\n------------- after compress -----------------\n");
+	while (i < array.len)
+	{
+		ft_printf("%i , ", array.array[i]);
+		i++;
+	}
+	printf("\n\n------------- after push -----------------\n");
+	array.flag_ab = array.len - 1;
+	i = check_array(&array);
+	push_a(&array);
+	i = check_array(&array);
+	push_a(&array);
+	i = check_array(&array);
+	swap_ab(&array);
+	i = check_array(&array);
+	push_b(&array);
+	i = check_array(&array);
+	return (0);
 }
 
-// int	main(int argc, char *argv[])
-// {
-// 	int			i;
-// 	t_array		array;
-// 	t_S_list	*head;
-
-// 	array.array = NULL;
-// 	if (ft_error_check(argc, argv, &array) < 0)
-// 		ft_error();
-// 	i = 0;
-// 	printf("\n----- start value of array -> array -----\n\n");
-// 	while (i < array.len)
-// 	{
-// 		ft_printf("%i , ", array.array[i]);
-// 		i++;
-// 	}
-// 	i = 0;
-// 	array.array = compress_array(&array);
-// 	while (i < array.len)
-// 	{
-// 		ft_printf("%i , ", array.array[i]);
-// 		i++;
-// 	}
-// 	head = ft_makelist(&array);
+	// head = ft_makelist(&array);
 	
-// 	i = 0;
-// 	printf("\n------- checking list -------\n\n");
-// 	while (i < array.len)
-// 	{
-// 		printf("head_point[%i] = %p\n", i, head);
-// 		printf("head->value[%i] = %i\n", i, head->value);
-// 		printf("head.next[%i] = %p\n", i, head->next);
-// 		printf("\n----- next list ---------\n\n");
-// 		head = head->next;
-// 		i++;
-// 	}
-// 	// system("leaks push_swap");
-// 	return (0);
-// }
+	// i = 0;
+	// printf("\n------- checking list -------\n\n");
+	// while (i < array.len)
+	// {
+	// 	printf("head_point[%i] = %p\n", i, head);
+	// 	printf("head->value[%i] = %i\n", i, head->value);
+	// 	printf("head.next[%i] = %p\n", i, head->next);
+	// 	printf("\n----- next list ---------\n\n");
+	// 	head = head->next;
+	// 	i++;
+	// }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+         #
+#    By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/19 10:38:14 by razasharuku       #+#    #+#              #
-#    Updated: 2023/04/09 21:12:36 by sraza            ###   ########.fr        #
+#    Updated: 2023/04/10 11:17:40 by razasharuku      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCS	=	push_swap.c \
 			ft_error.c \
 			ft_atoi_4_swap.c \
 			compress.c \
-			makelist.c
+			push_swap_perform.c \
+			# makelist.c
 
 OBJS = ${SRCS:%.c=%.o}
 
