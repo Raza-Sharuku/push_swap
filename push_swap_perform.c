@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 11:27:17 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/11 09:40:32 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/11 10:33:03 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,5 @@ void	*swap_ss(t_array *array)
 {
 	swap_a(array);
 	swap_b(array);
-	// write(1,"ss\n",3);
 	return (array);
 }
