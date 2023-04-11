@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/11 09:40:24 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/11 10:17:50 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ int	main(int argc, char *argv[])
 	i = check_array(&array);
 	push_b(&array);
 	i = check_array(&array);
+	push_b(&array);
+	i = check_array(&array);
 	swap_ss(&array);
 	i = check_array(&array);
 	printf("\n\n------------- its  rotate_a -----------------\n");
@@ -94,7 +96,15 @@ int	main(int argc, char *argv[])
 	printf("\n\n------------- its  rotate_ab -----------------\n");
 	rotate_rr(&array);
 	i = check_array(&array);
-	printf("\n\n------------- after rotate -----------------\n");
+	printf("\n\n------------- its  rev_rotate_a -----------------\n");
+	rev_rotate_ra(&array);
+	i = check_array(&array);
+	printf("\n\n------------- its  rev_rotate_b -----------------\n");
+	rev_rotate_rb(&array);
+	i = check_array(&array);
+	printf("\n\n------------- its  rev_rotate_rrr -----------------\n");
+	rev_rotate_rrr(&array);
+	i = check_array(&array);
 	return (0);
 }
 

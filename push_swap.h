@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:26:29 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/11 09:40:52 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/11 10:14:07 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ int				check_array(t_array *array);
 void			*rotate_a(t_array *array);
 void			*rotate_b(t_array *array);
 void			*rotate_rr(t_array *array);
+void			*rev_rotate_ra(t_array *array);
+void			*rev_rotate_rb(t_array *array);
+void			*rev_rotate_rrr(t_array *array);
 // t_S_list		*ft_makelist(t_array *stack);
 // t_S_list		*ft_newlst(int value);
 
