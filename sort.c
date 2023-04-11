@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:49:54 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/10 15:08:16 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/11 15:52:46 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,14 @@ void	*three_stack(t_array *array)
 	i = 0;
 	if (array->array[0] < array->array[1] && array->array[1] < array->array[2])
 		return ;
+	if (is_sorted == 0)
+		return (0);
 }
 
 int	stack_control(t_array *array)
 {
-	three_stack(array);
 	if (is_sorted == 0)
 		return (0);
-	
+	three_stack(array);
+	return (0);
 }

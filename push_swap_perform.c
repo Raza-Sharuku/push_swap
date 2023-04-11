@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 11:27:17 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/11 10:33:03 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/11 16:02:21 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*push_a(t_array *array)
 	else
 	{
 		array->flag_ab = array->flag_ab - 1;
-		write(1,"pa\n",3);
+		write(1, "pa\n", 3);
 	}
 	return (array);
 }
@@ -31,7 +31,7 @@ void	*push_b(t_array *array)
 	else
 	{
 		array->flag_ab = array->flag_ab + 1;
-		write(1,"pb\n",3);
+		write(1, "pb\n", 3);
 	}
 	return (array);
 }
@@ -43,12 +43,12 @@ void	*swap_a(t_array *array)
 	tmp = 0;
 	if (array->len - array->flag_ab < 2)
 		return (array);
-	else 
+	else
 	{
 		tmp = array->array[array->flag_ab];
 		array->array[array->flag_ab] = array->array[array->flag_ab + 1];
 		array->array[array->flag_ab + 1] = tmp;
-		write(1,"sa\n",3);
+		write(1, "sa\n", 3);
 	}
 	return (array);
 }
@@ -60,12 +60,12 @@ void	*swap_b(t_array *array)
 	tmp = 0;
 	if (array->flag_ab < 2)
 		array->array = array->array;
-	else 
+	else
 	{
 		tmp = array->array[array->flag_ab - 1];
 		array->array[array->flag_ab - 1] = array->array[array->flag_ab - 2];
 		array->array[array->flag_ab - 2] = tmp;
-		write(1,"sb\n",3);
+		write(1, "sb\n", 3);
 	}
 	return (array);
 }

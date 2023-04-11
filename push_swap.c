@@ -6,24 +6,11 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/11 10:17:50 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/11 16:02:46 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
-
-/* if arguments clear error_check, it means arguments 
-can use for this program and then my next step is divide 
-in two case. 
-1 How to recieve numbers when argc is 2 and argument contains 
-multipule numbers.
--> This can be solve by whether argc is 2 or not.
-2 How to receive numbers when argc is more than 3 and all of 
-them are single-shot 
-numbers.
-->This can be determined by whether argc is more than 3 or not.
-Then, pass the each case to a function to handle.
-*/
 
 void	ft_error(void)
 {
@@ -105,19 +92,6 @@ int	main(int argc, char *argv[])
 	printf("\n\n------------- its  rev_rotate_rrr -----------------\n");
 	rev_rotate_rrr(&array);
 	i = check_array(&array);
+	free(array.array);
 	return (0);
 }
-
-	// head = ft_makelist(&array);
-	
-	// i = 0;
-	// printf("\n------- checking list -------\n\n");
-	// while (i < array.len)
-	// {
-	// 	printf("head_point[%i] = %p\n", i, head);
-	// 	printf("head->value[%i] = %i\n", i, head->value);
-	// 	printf("head.next[%i] = %p\n", i, head->next);
-	// 	printf("\n----- next list ---------\n\n");
-	// 	head = head->next;
-	// 	i++;
-	// }
