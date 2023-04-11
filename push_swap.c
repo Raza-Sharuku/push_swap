@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/10 18:50:37 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/11 09:40:24 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,18 @@ int	main(int argc, char *argv[])
 	i = check_array(&array);
 	push_b(&array);
 	i = check_array(&array);
-	swap_ab(&array);
+	swap_ss(&array);
 	i = check_array(&array);
-	push_a(&array);
+	printf("\n\n------------- its  rotate_a -----------------\n");
+	rotate_a(&array);
 	i = check_array(&array);
+	printf("\n\n------------- its  rotate_b -----------------\n");
+	rotate_b(&array);
+	i = check_array(&array);
+	printf("\n\n------------- its  rotate_ab -----------------\n");
+	rotate_rr(&array);
+	i = check_array(&array);
+	printf("\n\n------------- after rotate -----------------\n");
 	return (0);
 }
 

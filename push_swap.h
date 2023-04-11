@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:26:29 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/10 14:39:32 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/11 09:40:52 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,13 @@ int				*ft_makelist_argc3(int argc, char *argv[]);
 int				*compress_array(t_array *stack);
 void			*swap_a(t_array *array);
 void			*swap_b(t_array *array);
-void			*swap_ab(t_array *array);
+void			*swap_ss(t_array *array);
 void			*push_a(t_array *array);
 void			*push_b(t_array *array);
-int 			check_array(t_array *array);
+int				check_array(t_array *array);
+void			*rotate_a(t_array *array);
+void			*rotate_b(t_array *array);
+void			*rotate_rr(t_array *array);
 // t_S_list		*ft_makelist(t_array *stack);
 // t_S_list		*ft_newlst(int value);
 
