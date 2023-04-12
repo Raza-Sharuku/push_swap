@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:26:29 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/11 10:14:07 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/12 11:56:41 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ void			*rotate_rr(t_array *array);
 void			*rev_rotate_ra(t_array *array);
 void			*rev_rotate_rb(t_array *array);
 void			*rev_rotate_rrr(t_array *array);
+int				stack_control(t_array *array);
+int				three_stack(t_array *array);
+int				sort_three(t_array *array);
+int				two_stack(t_array *array);
+int				is_sorted(t_array *stack);
 // t_S_list		*ft_makelist(t_array *stack);
 // t_S_list		*ft_newlst(int value);
 

@@ -6,7 +6,7 @@
 #    By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/19 10:38:14 by razasharuku       #+#    #+#              #
-#    Updated: 2023/04/11 09:56:38 by razasharuku      ###   ########.fr        #
+#    Updated: 2023/04/12 11:53:30 by razasharuku      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,8 @@ SRCS	=	push_swap.c \
 			push_swap_perform.c \
 			rotate_perform.c \
 			rev_rotate_perform.c \
-			# makelist.c \
-			# sort.c 
+			sort.c \
+			# makelist.c 
 
 OBJS = ${SRCS:%.c=%.o}
 
