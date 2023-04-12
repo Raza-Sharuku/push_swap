@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:49:54 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/12 12:00:45 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/12 17:25:51 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,72 +26,69 @@ int	is_sorted(t_array *stack)
 	return (0);
 }
 
-int	two_stack(t_array *array)
+int	two_stack(t_array *s)
 {
-	if (array->array[0] > array->array[1])
-		swap_a(array);
-	if (array->array[0] < array->array[1])
+	if (s->array[s->flg] > s->array[s->flg + 1])
+		swap_a(s);
+	if (s->array[s->flg] < s->array[s->flg + 1])
 		return (0);
 	else
 		return (-1);
 }
 
-int	sort_three(t_array *array)
+int	sort_three(t_array *s)
 {
 	int	res;
 
 	res = 0;
-	if (array->array[0] == 1)
+	if (s->array[s->flg] == 1)
 	{
-		rotate_a(array);
-		rotate_a(array);
-		res = two_stack(array);
+		if (s->array[s->flg + 1] == 2)
+			return (res);
+		rev_rotate_ra(s);
+		res = two_stack(s);
 	}
-	else if (array->array[0] == 2)
+	else if (s->array[s->flg + 0] == 2)
 	{
-		rotate_a(array);
-		if (array->array[0] == 3)
-			res = sort_three(array);
-		else if (array->array[0] == 1)
-			res = sort_three(array);
+		if (s->array[s->flg + 1] == 1)
+			swap_a(s);
+		else if (s->array[s->flg + 1] == 3)
+			rev_rotate_ra(s);
 	}
-	else if (array->array[0] == 3)
+	else if (s->array[s->flg + 0] == 3)
 	{
-		rotate_a(array);
-		res = two_stack(array);
+		rotate_a(s);
+		res = two_stack(s);
 	}
 	return (res);
 }
 
-int	three_stack(t_array *array)
+int	three_stack(t_array *s)
 {
 	int	res;
 
 	res = 0;
-	if (array->len == 2)
-		res = two_stack(array);
-	if (array->len == 3)
-		res = sort_three(array);
-	if (is_sorted(array) == 0)
-		return (res);
-	return (-1);
+	if (s->len - s->flg == 2)
+		res = two_stack(s);
+	if (s->len - s->flg == 3)
+		res = sort_three(s);
+	return (res);
 }
 
 /*ここのソートの考え方としてはソートする関数で問題なくできていれば0をかえる。ダメな時は-1を返す*/
 
-int	stack_control(t_array *array)
+int	stack_control(t_array *s)
 {
 	int	result;
 
 	result = 0;
-	if (is_sorted(array) == 0)
+	if (is_sorted(s) == 0)
 		return (0);
-	if (array->len <= 3)
-		result = three_stack(array);
+	if (s->len - s->flg <= 3)
+		result = three_stack(s);
+	if (s->len - s->flg > 3 && s->len - s->flg <= 6)
+		result = six_sort(s);
 	if (result == -1)
 		return (-1);
 	return (0);
 }
-
-	// if (array->len > 3 && array->len <= 6)
-	// 	result == six_stack(array);

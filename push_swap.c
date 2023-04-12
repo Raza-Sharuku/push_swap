@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/12 12:16:25 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/12 14:29:44 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	ft_error(void)
 	exit(1);
 }
 
-__attribute__((destructor))
-void    destructor(void)
-{
-	system("leaks -q push_swap");
+// __attribute__((destructor))
+// void    destructor(void)
+// {
+// 	system("leaks -q push_swap");
 
-}
+// }
 
 int check_array(t_array *array)
 {
@@ -32,7 +32,7 @@ int check_array(t_array *array)
 	i = 0;
 	while (i < array->len)
 	{
-		if (i == array->flag_ab)
+		if (i == array->flg)
 			printf(" | ");
 		printf(" %i , ", array->array[i]);
 		i++;
@@ -71,7 +71,7 @@ int	main(int argc, char *argv[])
 
 
 	// printf("\n\n------------- after push -----------------\n");
-	// array.flag_ab = 0;
+	// array.flg = 0;
 	// i = check_array(&array);
 	// push_b(&array);
 	// i = check_array(&array);

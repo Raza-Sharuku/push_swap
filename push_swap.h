@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:26:29 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/12 11:56:41 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/12 14:30:37 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_array
 {
 	int	*array;
 	int	len;
-	int 	flag_ab;
+	int flg;
 }				t_array;
 // typedef struct s_S_list
 // {
@@ -57,6 +57,9 @@ int				three_stack(t_array *array);
 int				sort_three(t_array *array);
 int				two_stack(t_array *array);
 int				is_sorted(t_array *stack);
+int				six_sort(t_array *s);
+int				four_five_stack(t_array *s);
+
 // t_S_list		*ft_makelist(t_array *stack);
 // t_S_list		*ft_newlst(int value);
 

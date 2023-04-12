@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:09:37 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/11 10:12:12 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/12 13:43:16 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	*rotate_a(t_array *array)
 	int	i;
 	int	tmp;
 
-	i = array->flag_ab;
-	if (array->len - array->flag_ab < 2)
+	i = array->flg;
+	if (array->len - array->flg < 2)
 		return (array);
 	else
 	{
-		tmp = array->array[array->flag_ab];
+		tmp = array->array[array->flg];
 		while (i < array->len - 1)
 		{
 			array->array[i] = array->array[i + 1];
@@ -39,12 +39,12 @@ void	*rotate_b(t_array *array)
 	int	i;
 	int	tmp;
 
-	i = array->flag_ab - 2;
-	if (array->flag_ab < 1)
+	i = array->flg - 2;
+	if (array->flg < 1)
 		return (array);
 	else
 	{
-		tmp = array->array[array->flag_ab - 1];
+		tmp = array->array[array->flg - 1];
 		while (i >= 0)
 		{
 			array->array[i + 1] = array->array[i];

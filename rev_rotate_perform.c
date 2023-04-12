@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:12:06 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/11 10:14:37 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/12 13:43:02 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ void	*rev_rotate_ra(t_array *array)
 	int	tmp;
 
 	i = array->len - 1;
-	if (array->len - array->flag_ab < 2)
+	if (array->len - array->flg < 2)
 		return (array);
 	else
 	{
 		tmp = array->array[array->len - 1];
-		while (i >= array->flag_ab)
+		while (i >= array->flg)
 		{
 			array->array[i + 1] = array->array[i];
 			i--;
 		}
-		array->array[array->flag_ab] = tmp;
+		array->array[array->flg] = tmp;
 		write (1, "rra\n", 4);
 	}
 	return (array);
@@ -40,12 +40,12 @@ void	*rev_rotate_rb(t_array *array)
 	int	tmp;
 
 	i = 0;
-	if (array->flag_ab < 1)
+	if (array->flg < 1)
 		return (array);
 	else
 	{
 		tmp = array->array[0];
-		while (i < array->flag_ab - 1)
+		while (i < array->flg - 1)
 		{
 			array->array[i] = array->array[i + 1];
 			i++;
