@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:26:29 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/13 17:35:43 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/13 21:43:29 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ typedef struct s_array
 	int	len;
 	int flg;
 }				t_array;
-// typedef struct s_S_list
-// {
-// 	int				value;
-// 	struct s_S_list	*next;
-// }				t_S_list;
-
+typedef struct s_algo
+{
+	int	div;
+	int	rot;
+	int rev;
+}				t_algo;
 int				main(int argc, char *argv[]);
 int				ft_error_check(int argc, char *argv[], t_array *stack);
 long			ft_atoi_swap(const char *str);
@@ -62,9 +62,9 @@ int				four_five_stack(t_array *s);
 int				sort_three_desend(t_array *s, int min, int mid, int max);
 int				two_stack_desend(t_array *s);
 int				six_stack(t_array *s, int res);
+int				max_sort(t_array *s);
+int				push_alternate(t_array *s, t_algo *a);
 
 
-// t_S_list		*ft_makelist(t_array *stack);
-// t_S_list		*ft_newlst(int value);
 
 #endif

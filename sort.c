@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:49:54 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/13 16:32:58 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/13 21:42:54 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	three_stack(t_array *s)
 
 int	stack_control(t_array *s)
 {
-	int	result;
+	int		result;
 
 	result = 0;
 	if (is_sorted(s) == 0)
@@ -88,6 +88,8 @@ int	stack_control(t_array *s)
 		result = three_stack(s);
 	if (s->len - s->flg > 3 && s->len - s->flg <= 6)
 		result = six_sort(s, 0);
+	if (s->len >= 7)
+		result = max_sort(s);
 	if (result == -1)
 		return (-1);
 	return (0);

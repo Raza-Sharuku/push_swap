@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+         #
+#    By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/19 10:38:14 by razasharuku       #+#    #+#              #
-#    Updated: 2023/04/12 14:29:23 by razasharuku      ###   ########.fr        #
+#    Updated: 2023/04/13 21:23:54 by sraza            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS	=	push_swap.c \
 			rev_rotate_perform.c \
 			sort.c \
 			sort_2.c \
-			# makelist.c 
+			sort_3.c
 
 OBJS = ${SRCS:%.c=%.o}
 
