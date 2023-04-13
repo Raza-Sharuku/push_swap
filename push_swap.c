@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/12 14:29:44 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/13 14:13:18 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,12 @@ int	main(int argc, char *argv[])
 		ft_error();
 	i = 0;
 	array.array = compress_array(&array);
-	printf("\n\n------------- after compress -----------------\n");
-	while (i < array.len)
-	{
-		ft_printf("%i , ", array.array[i]);
-		i++;
-	}
-	printf("\n");
+	// printf("------------- after compress -----------------\n");
+	// while (i < array.len)
+	// {
+	// 	ft_printf("%i , ", array.array[i]);
+	// 	i++;
+	// }
 	if (is_sorted(&array) == 0 || stack_control(&array) == 0)
 	{
 		printf("\n------------- last form of array -----------------\n");
@@ -66,7 +65,8 @@ int	main(int argc, char *argv[])
 	}
 	if (is_sorted(&array) == -1 || stack_control(&array) == -1)
 		ft_error();
-	return (0);
+	i = 0;
+	return (i);
 }
 
 

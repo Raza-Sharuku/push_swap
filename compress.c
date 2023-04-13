@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 09:39:43 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/10 10:26:31 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/13 14:11:14 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,6 @@ static	int	*change_positoin(t_array *array, int *position)
 		}
 		i++;
 	}
-	printf("\n------------- change the position -----------------\n\n");
-	i = -1;
-	while (++i < array->len)
-		ft_printf("%i , ", position[i]);
 	return (position);
 }
 

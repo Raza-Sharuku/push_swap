@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:02:01 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/13 11:37:31 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/13 14:06:22 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@ int	four_five_stack(t_array *s)
 	i = 0;
 	while (i < s->len)
 	{
-		res = check_array(s);
 		if (s->array[s->flg] == 4 || s->array[s->flg] == 5)
 			push_b(s);
 		else
 			rotate_a(s);
 		i++;
 	}
-	res = check_array(s);
 	if (s->array[0] < s->array[1])
 		swap_b(s);
 	res = stack_control(s);
@@ -43,12 +41,9 @@ int	six_stack(t_array *s)
 	int	res;
 
 	res = sort_three(s, 6, 5, 4);
-	res = check_array(s);
-	printf("--------------- A stack sorted ===========\n");
 	res = sort_three_desend(s, 1, 2, 3);
 	while (s->flg != 0)
 		push_a(s);
-	res = check_array(s);
 	return (res);
 }
 
@@ -103,7 +98,6 @@ int	six_sort(t_array *s)
 	{
 		while (i < s->len)
 		{
-			res = check_array(s);
 			if (s->array[s->flg] == 1 || s->array[s->flg] == 2
 				|| s->array[s->flg] == 3)
 				push_b(s);
