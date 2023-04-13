@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:26:29 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/13 16:31:01 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/13 17:35:43 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int				six_sort(t_array *s, int i);
 int				four_five_stack(t_array *s);
 int				sort_three_desend(t_array *s, int min, int mid, int max);
 int				two_stack_desend(t_array *s);
-int				six_stack(t_array *s);
+int				six_stack(t_array *s, int res);
 
 
 // t_S_list		*ft_makelist(t_array *stack);
