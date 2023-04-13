@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:49:54 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/12 17:25:51 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/13 10:38:38 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,26 +36,26 @@ int	two_stack(t_array *s)
 		return (-1);
 }
 
-int	sort_three(t_array *s)
+int	sort_three(t_array *s, int max, int mid, int min)
 {
 	int	res;
 
 	res = 0;
-	if (s->array[s->flg] == 1)
+	if (s->array[s->flg] == min)
 	{
-		if (s->array[s->flg + 1] == 2)
+		if (s->array[s->flg + 1] == mid)
 			return (res);
 		rev_rotate_ra(s);
 		res = two_stack(s);
 	}
-	else if (s->array[s->flg + 0] == 2)
+	else if (s->array[s->flg] == mid)
 	{
-		if (s->array[s->flg + 1] == 1)
+		if (s->array[s->flg + 1] == min)
 			swap_a(s);
-		else if (s->array[s->flg + 1] == 3)
+		else if (s->array[s->flg + 1] == max)
 			rev_rotate_ra(s);
 	}
-	else if (s->array[s->flg + 0] == 3)
+	else if (s->array[s->flg] == max)
 	{
 		rotate_a(s);
 		res = two_stack(s);
@@ -71,7 +71,7 @@ int	three_stack(t_array *s)
 	if (s->len - s->flg == 2)
 		res = two_stack(s);
 	if (s->len - s->flg == 3)
-		res = sort_three(s);
+		res = sort_three(s, 3, 2, 1);
 	return (res);
 }
 
