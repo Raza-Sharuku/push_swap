@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 13:59:15 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/13 21:55:20 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/13 22:02:17 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@ int	push_alternate(t_array *s, t_algo *a)
 	p = 0;
 	k = check_array(s);
 	printf("\n----------- checking max_sort ---------------\n");
-	while (k < 5)
+	while (k < 15)
 	{
 		printf("s->array[s->flg] = %i , (1 + a->div * p) = %i \n", s->array[s->flg], 1 + a->div * p);
-		if (s->array[s->flg] >= (1 + a->div * p) && s->array[s->flg] < (a->div + a->div * p))
+		if (s->array[s->flg] >= (1 + a->div * p) && s->array[s->flg] <= (a->div + a->div * p))
+		{
 			push_b(s);
-		p++;
-		if (s->array[s->flg] >= (1 + a->div * p) && s->array[s->flg] < (a->div + a->div * p))
+		}
+		if (s->array[s->flg] >= (1 + a->div * p) && s->array[s->flg] <= (a->div + a->div * p))
 		{
 			push_b(s);
 			rotate_b(s);
-			p++;
 		}
 		else 
 			rotate_a(s);
