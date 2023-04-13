@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/13 14:13:18 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/13 15:25:44 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,6 @@ int	main(int argc, char *argv[])
 		ft_error();
 	i = 0;
 	array.array = compress_array(&array);
-	// printf("------------- after compress -----------------\n");
-	// while (i < array.len)
-	// {
-	// 	ft_printf("%i , ", array.array[i]);
-	// 	i++;
-	// }
 	if (is_sorted(&array) == 0 || stack_control(&array) == 0)
 	{
 		printf("\n------------- last form of array -----------------\n");
@@ -68,34 +62,3 @@ int	main(int argc, char *argv[])
 	i = 0;
 	return (i);
 }
-
-
-	// printf("\n\n------------- after push -----------------\n");
-	// array.flg = 0;
-	// i = check_array(&array);
-	// push_b(&array);
-	// i = check_array(&array);
-	// push_b(&array);
-	// i = check_array(&array);
-	// push_b(&array);
-	// i = check_array(&array);
-	// swap_ss(&array);
-	// i = check_array(&array);
-	// printf("\n\n------------- its  rotate_a -----------------\n");
-	// rotate_a(&array);
-	// i = check_array(&array);
-	// printf("\n\n------------- its  rotate_b -----------------\n");
-	// rotate_b(&array);
-	// i = check_array(&array);
-	// printf("\n\n------------- its  rotate_ab -----------------\n");
-	// rotate_rr(&array);
-	// i = check_array(&array);
-	// printf("\n\n------------- its  rev_rotate_a -----------------\n");
-	// rev_rotate_ra(&array);
-	// i = check_array(&array);
-	// printf("\n\n------------- its  rev_rotate_b -----------------\n");
-	// rev_rotate_rb(&array);
-	// i = check_array(&array);
-	// printf("\n\n------------- its  rev_rotate_rrr -----------------\n");
-	// rev_rotate_rrr(&array);
-	// i = check_array(&array);
