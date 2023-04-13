@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/13 15:25:44 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/13 16:33:11 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ int	main(int argc, char *argv[])
 	array.array = compress_array(&array);
 	if (is_sorted(&array) == 0 || stack_control(&array) == 0)
 	{
-		printf("\n------------- last form of array -----------------\n");
-		i = check_array(&array);
+		// printf("\n------------- last form of array -----------------\n");
+		// i = check_array(&array);
 		free(array.array);
 		return (0);
 	}

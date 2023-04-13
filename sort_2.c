@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:02:01 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/13 15:25:51 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/13 16:32:20 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,9 @@ int	four_five_stack(t_array *s)
 			rotate_a(s);
 		i++;
 	}
-	if (s->array[0] < s->array[1])
+	if (s->flg == 2 && s->array[0] < s->array[1])
 		swap_b(s);
 	res = stack_control(s);
-	push_a(s);
-	rotate_a(s);
-	push_a(s);
-	rotate_a(s);
 	return (res);
 }
 
@@ -85,15 +81,17 @@ int	sort_three_desend(t_array *s, int min, int mid, int max)
 }
 
 /*ここではBスタックに１２３をAスタックに４５６が来るようにする*/
-int	six_sort(t_array *s)
+int	six_sort(t_array *s, int i)
 {
-	int	res;
-	int	i;
-
-	res = 0;
-	i = 0;
 	if (s->len == 4 || s->len == 5)
-		res = four_five_stack(s);
+	{
+		i = four_five_stack(s);
+		while (s->flg != 0)
+		{
+			push_a(s);
+			rotate_a(s);
+		}
+	}
 	else if (s->len == 6)
 	{
 		while (i < s->len)
@@ -105,8 +103,7 @@ int	six_sort(t_array *s)
 				rotate_a(s);
 			i++;
 		}
-		res = six_stack(s);
+		i = six_stack(s);
 	}
-	res = is_sorted(s);
-	return (res);
+	return (is_sorted(s));
 }
