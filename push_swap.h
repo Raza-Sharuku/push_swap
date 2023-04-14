@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:26:29 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/14 12:51:30 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/14 14:45:54 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_algo
 	int	div;
 	int	rot;
 	int rev;
+	int	push;
 }				t_algo;
 int				main(int argc, char *argv[]);
 int				ft_error_check(int argc, char *argv[], t_array *stack);
