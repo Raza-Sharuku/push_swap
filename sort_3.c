@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 13:59:15 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/14 16:28:42 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/14 17:39:18 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,11 @@ int	patterns(t_array *s, t_algo *a)
 
 int	max_sort(t_array *s)
 {
-	// int		res;
+	int		res;
 	t_algo	*a;
 	int		p;
 
+	res = 0;
 	p = 0;
 	a = malloc(sizeof (t_algo));
 	a->div = patterns(s, a);
@@ -82,29 +83,47 @@ int	max_sort(t_array *s)
 		p = push_alternate(s, a, p, 0);
 	p = check_array(s);
 	printf("p = %i \n", p);
-	// if (s->len % a->div == 0)
-	// 	p = s->len / a->div;
-	// if (s->len % a->div > 0)
-	// 	p = s->len / a->div + 1;
-	// while (s->flg >= 0)
-	// {
-	// 	if (p % 2 == 0)
-	// 		p =  rev_push_a(s, a, p, 0);
-	// 	if (p % 2 == 1)
-	// 		p = push_rotate_a(s, a, p, 0);
-	// }
+	if (s->len % a->div == 0)
+		p = s->len / a->div;
+	if (s->len % a->div > 0)
+		p = s->len / a->div + 1;
+	printf("p = %i \n", p);
+	while (res < 5)
+	{
+		// if (p % 2 == 0)
+		// 	p =  rev_push_a(s, a, p, 0);
+		if (p % 2 == 1)
+			p = push_rotate_a(s, a, p, a->div * p);
+		if (p < 0)
+			return (-1);
+		res++;
+	}
+	res = check_array(s);
 	return (0);
 }
 
 
 
-// int	push_rotate_a(t_array *s, t_algo *a, int p, int i)
-// {
-	
-
-
-// 	return (p - 1);
-// }
+int	push_rotate_a(t_array *s, t_algo *a, int p, int max)
+{
+	if (s->len < p * a->div)
+		max = s->len;
+	if (s->array[s->flg - 1] == max || s->array[s->flg - 1] == max - 1)
+	{
+		push_a(s);
+		if (s->len - s->flg >= 2 && s->array[s->flg] > s->array[s->flg + 1])
+			swap_a(s);
+		a->push++;
+		printf("a -> push = %i\n", a->push);
+	}
+	else
+	{
+		rotate_b(s);
+		a->rot++;
+	}
+	return (p - 1);
+	return (-1);
+}
 
 // int	rev_push_a(t_array *s, t_algo *a, int p, int i)
 // {

@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:26:29 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/14 14:45:54 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/14 17:34:42 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int				two_stack_desend(t_array *s);
 int				six_stack(t_array *s, int res);
 int				max_sort(t_array *s);
 int				push_alternate(t_array *s, t_algo *a, int p, int k);
-
+int				push_rotate_a(t_array *s, t_algo *a, int p, int max);
 
 
 #endif
