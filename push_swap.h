@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:26:29 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/13 21:43:29 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/14 12:51:30 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int				sort_three_desend(t_array *s, int min, int mid, int max);
 int				two_stack_desend(t_array *s);
 int				six_stack(t_array *s, int res);
 int				max_sort(t_array *s);
-int				push_alternate(t_array *s, t_algo *a);
+int				push_alternate(t_array *s, t_algo *a, int p, int k);
 
 
 
