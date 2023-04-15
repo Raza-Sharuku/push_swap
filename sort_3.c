@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 13:59:15 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/14 21:15:53 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/15 12:46:41 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,18 +88,18 @@ int	max_sort(t_array *s)
 	if (s->len % a->div > 0)
 		p = s->len / a->div;
 	printf("p = %i \n", p);
+	printf("\n------------------ can i push_a correctly? ----------------\n");
 	while (res < 5)
 	{
 		// if (p % 2 == 1)
 		// 	p =  rev_push_a(s, a, p, 0);
 		if (p % 2 == 0)
 			p = push_rotate_a(s, a, p, 0);
-		printf("\n------------------ can i push_a correctly? ----------------\n");
 		if (p < 0)
 			return (-1);
 		res++;
 	}
-	res = check_array(s);
+	printf("\n------------------ can i push_a correctly? ----------------\n");
 	return (0);
 }
 
@@ -107,39 +107,48 @@ int	max_sort(t_array *s)
 
 int	push_rotate_a(t_array *s, t_algo *a, int p, int max)
 {
-	int	i;
+	int	mod;
+	int i;
 
+	mod = a->div;
+	if (s->flg % a->div > 0)
+		mod = s->flg % a->div;
 	i = 1;
 	a->push = 0;
 	a->rot = 0;
-	while (i <= a->div)
+	while (i <= mod)
 	{
 		if (s->array[s->flg - i] > max)
 			max = s->array[s->flg - i];
 		i++;
 	}
-	// if (s->len < p * a->div)
-	// 	max = s->len;
-	while (s->array[s->flg - 1] > a->div * p && a->rot != 0)
+	while (a->push < mod && s->array[s->flg - 1] >= a->div * (p))
 	{
-		while (a->rot > 0)
-		{
-			rev_rotate_rb(s);
-			a->rot--;
-		}
 		while (s->array[s->flg - 1] == max || s->array[s->flg - 1] == max - 1)
 		{
 			push_a(s);
-			if (s->len - s->flg >= 2 && s->array[s->flg] > s->array[s->flg + 1])
-				swap_a(s);
 			a->push++;
+			if (a->push % 2 == 0 && s->array[s->flg] > s->array[s->flg + 1])
+			{
+				swap_a(s);
+				max = max - 2;
+			}
 			i = check_array(s);
 			printf("a -> push = %i\n", a->push);
 		}
-		if (a->push < ((s->flg - 1) - a->div * (p - 1)))
+		printf("s->array[s->flg - 1] = %i\n", s->array[s->flg - 1]);
+		printf("max = %i\n", max);
+		printf("a -> rot = %i\n", a->rot);
+		if (s->array[s->flg - 1] >= a->div * p && (s->array[s->flg - 1] != max && s->array[s->flg - 1] != max - 1))
 		{
 			rotate_b(s);
 			a->rot++;
+		}
+		printf("s->array[s->flg - 1] = %i\n", s->array[s->flg - 1]);
+		if (s->array[s->flg - 1] < a->div * p)
+		{
+			rev_rotate_rb(s);
+			a->rot--;
 		}
 	}
 	i = check_array(s);
