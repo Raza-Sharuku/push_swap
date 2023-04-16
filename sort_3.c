@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 13:59:15 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/15 12:46:41 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/15 17:56:11 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,10 +145,14 @@ int	push_rotate_a(t_array *s, t_algo *a, int p, int max)
 			a->rot++;
 		}
 		printf("s->array[s->flg - 1] = %i\n", s->array[s->flg - 1]);
-		if (s->array[s->flg - 1] < a->div * p)
+		if (a->push + a->rot > mod)
 		{
-			rev_rotate_rb(s);
-			a->rot--;
+			while (a->rot > 0)
+			{
+				rev_rotate_rb(s);
+				a->rot--;
+			}
+			// break ;
 		}
 	}
 	i = check_array(s);
