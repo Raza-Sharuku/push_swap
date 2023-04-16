@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/13 16:33:11 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/16 20:08:34 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,9 @@ void	ft_error(void)
 	exit(1);
 }
 
-// __attribute__((destructor))
-// void    destructor(void)
-// {
-// 	system("leaks -q push_swap");
-
-// }
-
-int check_array(t_array *array)
+int	check_array(t_array *array)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < array->len)
@@ -43,22 +36,28 @@ int check_array(t_array *array)
 
 int	main(int argc, char *argv[])
 {
-	int			i;
 	t_array		array;
+	// int i;
 
 	if (ft_error_check(argc, argv, &array) < 0)
 		ft_error();
-	i = 0;
 	array.array = compress_array(&array);
+	// printf("\n---------  after compress --------\n");
+	// i = check_array(&array);
 	if (is_sorted(&array) == 0 || stack_control(&array) == 0)
 	{
-		// printf("\n------------- last form of array -----------------\n");
-		// i = check_array(&array);
+	// i = check_array(&array);
 		free(array.array);
 		return (0);
 	}
 	if (is_sorted(&array) == -1 || stack_control(&array) == -1)
 		ft_error();
-	i = 0;
-	return (i);
+	return (0);
 }
+
+// __attribute__((destructor))
+// void    destructor(void)
+// {
+// 	system("leaks -q push_swap");
+
+// }

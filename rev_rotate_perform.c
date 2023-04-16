@@ -3,35 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   rev_rotate_perform.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:12:06 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/12 13:43:02 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/16 16:34:13 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-void	*rev_rotate_ra(t_array *array)
+void	*rev_rotate_ra(t_array *s)
 {
 	int	i;
 	int	tmp;
 
-	i = array->len - 1;
-	if (array->len - array->flg < 2)
-		return (array);
+	i = s->len - 1;
+	if (s->len - s->flg < 2)
+		return (s);
 	else
 	{
-		tmp = array->array[array->len - 1];
-		while (i >= array->flg)
+		tmp = s->array[s->len - 1];
+		while (i >= s->flg)
 		{
-			array->array[i + 1] = array->array[i];
+			s->array[i + 1] = s->array[i];
 			i--;
 		}
-		array->array[array->flg] = tmp;
+		s->array[s->flg] = tmp;
 		write (1, "rra\n", 4);
 	}
-	return (array);
+	return (s);
 }
 
 void	*rev_rotate_rb(t_array *array)

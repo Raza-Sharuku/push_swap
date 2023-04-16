@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 13:59:15 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/16 13:42:41 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/16 20:50:27 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,29 +26,30 @@ k < 2 * a->divの状態ならrotateしていいということにする。
 */
 int	push_alternate(t_array *s, t_algo *a, int p, int k)
 {
-	while ((k < 2 * a->div) && s->flg < s->len && (a->rot <= s->len))
+	a->rot = 0;
+
+	while (s->flg < s->len && (k < 2 * a->div) && (a->rot <= s->len))
 	{
-		while (s->array[s->flg] > a->div * p && s->array[s->flg]
-			<= a->div * (p + 1) && s->flg < s->len)
+		while (s->flg < s->len && s->array[s->flg] > a->div * p
+			&& s->array[s->flg] <= a->div * (p + 1))
 		{
 			push_b(s);
 			k++;
 		}
-		while (s->array[s->flg] > (a->div * (p + 1)) && s->array[s->flg]
-			<= (a->div * (p + 2)) && s->flg < s->len)
+		while (s->flg < s->len && s->array[s->flg] > (a->div * (p + 1))
+			&& s->array[s->flg] <= (a->div * (p + 2)))
 		{
 			push_b(s);
 			rotate_b(s);
 			k++;
 		}
-		if (s->array[s->flg] > (a->div + a->div * (p + 1)) && (k < 2 * a->div))
+		if (s->flg < s->len && (k < 2 * a->div) && s->array[s->flg]
+			> (a->div + a->div * (p + 1)))
 		{
 			rotate_a(s);
 			a->rot++;
 		}
 	}
-	// k = check_array(s);
-	a->rot = 0;
 	return (p + 2);
 }
 
@@ -59,55 +60,41 @@ int	patterns(t_array *s, t_algo *a)
 	if (s->len > 10 && s->len <= 50)
 		a->div = 5;
 	if (s->len > 50 && s->len <= 100)
-		a->div = 10;
+		a->div = 13;
 	if (s->len > 100 && s->len <= 500)
+		a->div = 18;
+	if (s->len > 500)
 		a->div = 50;
-	if (s->len > 500 && s->len <= 1000)
-		a->div = 100;
-	if (s->len > 1000)
-		a->div = 200;
 	return (a->div);
 }
 
 int	max_sort(t_array *s)
 {
-	int		res;
 	t_algo	*a;
 	int		p;
 
-	res = 0;
 	p = 0;
 	a = malloc(sizeof (t_algo));
 	a->div = patterns(s, a);
-	// printf("a -> div = %i \n", a->div);
 	while ((s->flg < s->len))
 		p = push_alternate(s, a, p, 0);
-	// p = check_array(s);
-	// printf("p = %i \n", p);
 	if (s->len % a->div == 0)
 		p = s->len / a->div - 1;
 	if (s->len % a->div > 0)
 		p = s->len / a->div;
-	// printf("p = %i \n", p);
-	// printf("\n------------------ can i push_a correctly? ----------------\n");
-	while (res < 5)
+	while (p >= 0)
 	{
-		// if (p % 2 == 1)
-		// 	p =  rev_push_a(s, a, p, 0);
 		if (p % 2 == 0)
 			p = push_rotate_a(s, a, p, 0);
-		if (p < 0)
-			return (-1);
-		res++;
+		if (p % 2 == 1)
+			p = rev_push_a(s, a, p, 0);
+		// if (p < 1)
+		// {
+		// 	// p = check_array(s);
+		// 	break ;
+		// }
+		
 	}
-	// printf("\n------------------ can i push_a correctly? ----------------\n");
+	free(a);
 	return (0);
 }
-
-// int	rev_push_a(t_array *s, t_algo *a, int p, int i)
-// {
-
-
-
-// 	return (p - 1);
-// }

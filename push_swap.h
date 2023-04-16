@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:26:29 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/16 12:58:01 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/16 17:46:00 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,9 @@ int				push_alternate(t_array *s, t_algo *a, int p, int k);
 int				push_rotate_a(t_array *s, t_algo *a, int p, int mod);
 int				patterns(t_array *s, t_algo *a);
 int				set_max_val(t_array *s, t_algo *a, int p, int mod);
+int				rev_push_a(t_array *s, t_algo *a, int p, int mod);
+void			p_negative_push(t_array *s, t_algo *a);
+void			p_positive_push(t_array *s, t_algo *a);
+void			p_rev_rot(t_array *s, t_algo *a);
 
 #endif

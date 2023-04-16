@@ -6,14 +6,14 @@
 #    By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/19 10:38:14 by razasharuku       #+#    #+#              #
-#    Updated: 2023/04/16 12:37:52 by sraza            ###   ########.fr        #
+#    Updated: 2023/04/16 16:04:40 by sraza            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 NAME = $(NAME)
 NAME	=	push_swap 
-CFLAGS	=	-Wall -Wextra -Werror 
+CFLAGS	=	-Wall -Wextra -Werror -fsanitize=address
 INC		=	-I./libs/libft/ -I./libs/ft_printf/
 
 SRCS	=	push_swap.c \
@@ -26,7 +26,8 @@ SRCS	=	push_swap.c \
 			sort.c \
 			sort_2.c \
 			sort_3.c \
-			sort_4.c
+			sort_4.c \
+			sort_5.c
 
 OBJS = ${SRCS:%.c=%.o}
 
