@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 13:59:15 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/15 17:56:11 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/16 13:42:41 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	push_alternate(t_array *s, t_algo *a, int p, int k)
 			a->rot++;
 		}
 	}
+	// k = check_array(s);
 	a->rot = 0;
 	return (p + 2);
 }
@@ -78,17 +79,17 @@ int	max_sort(t_array *s)
 	p = 0;
 	a = malloc(sizeof (t_algo));
 	a->div = patterns(s, a);
-	printf("a -> div = %i \n", a->div);
+	// printf("a -> div = %i \n", a->div);
 	while ((s->flg < s->len))
 		p = push_alternate(s, a, p, 0);
-	p = check_array(s);
-	printf("p = %i \n", p);
+	// p = check_array(s);
+	// printf("p = %i \n", p);
 	if (s->len % a->div == 0)
 		p = s->len / a->div - 1;
 	if (s->len % a->div > 0)
 		p = s->len / a->div;
-	printf("p = %i \n", p);
-	printf("\n------------------ can i push_a correctly? ----------------\n");
+	// printf("p = %i \n", p);
+	// printf("\n------------------ can i push_a correctly? ----------------\n");
 	while (res < 5)
 	{
 		// if (p % 2 == 1)
@@ -99,65 +100,8 @@ int	max_sort(t_array *s)
 			return (-1);
 		res++;
 	}
-	printf("\n------------------ can i push_a correctly? ----------------\n");
+	// printf("\n------------------ can i push_a correctly? ----------------\n");
 	return (0);
-}
-
-
-
-int	push_rotate_a(t_array *s, t_algo *a, int p, int max)
-{
-	int	mod;
-	int i;
-
-	mod = a->div;
-	if (s->flg % a->div > 0)
-		mod = s->flg % a->div;
-	i = 1;
-	a->push = 0;
-	a->rot = 0;
-	while (i <= mod)
-	{
-		if (s->array[s->flg - i] > max)
-			max = s->array[s->flg - i];
-		i++;
-	}
-	while (a->push < mod && s->array[s->flg - 1] >= a->div * (p))
-	{
-		while (s->array[s->flg - 1] == max || s->array[s->flg - 1] == max - 1)
-		{
-			push_a(s);
-			a->push++;
-			if (a->push % 2 == 0 && s->array[s->flg] > s->array[s->flg + 1])
-			{
-				swap_a(s);
-				max = max - 2;
-			}
-			i = check_array(s);
-			printf("a -> push = %i\n", a->push);
-		}
-		printf("s->array[s->flg - 1] = %i\n", s->array[s->flg - 1]);
-		printf("max = %i\n", max);
-		printf("a -> rot = %i\n", a->rot);
-		if (s->array[s->flg - 1] >= a->div * p && (s->array[s->flg - 1] != max && s->array[s->flg - 1] != max - 1))
-		{
-			rotate_b(s);
-			a->rot++;
-		}
-		printf("s->array[s->flg - 1] = %i\n", s->array[s->flg - 1]);
-		if (a->push + a->rot > mod)
-		{
-			while (a->rot > 0)
-			{
-				rev_rotate_rb(s);
-				a->rot--;
-			}
-			// break ;
-		}
-	}
-	i = check_array(s);
-	return (p - 1);
-	return (-1);
 }
 
 // int	rev_push_a(t_array *s, t_algo *a, int p, int i)

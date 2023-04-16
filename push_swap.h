@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:26:29 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/14 20:26:09 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/16 12:58:01 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,15 @@ typedef struct s_array
 {
 	int	*array;
 	int	len;
-	int flg;
+	int	flg;
 }				t_array;
 typedef struct s_algo
 {
 	int	div;
 	int	rot;
-	int rev;
+	int	rev;
 	int	push;
+	int	max;
 }				t_algo;
 int				main(int argc, char *argv[]);
 int				ft_error_check(int argc, char *argv[], t_array *stack);
@@ -65,7 +66,8 @@ int				two_stack_desend(t_array *s);
 int				six_stack(t_array *s, int res);
 int				max_sort(t_array *s);
 int				push_alternate(t_array *s, t_algo *a, int p, int k);
-int				push_rotate_a(t_array *s, t_algo *a, int p, int max);
+int				push_rotate_a(t_array *s, t_algo *a, int p, int mod);
 int				patterns(t_array *s, t_algo *a);
+int				set_max_val(t_array *s, t_algo *a, int p, int mod);
 
 #endif
