@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/17 21:06:36 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/17 21:29:29 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ int	main(int argc, char *argv[])
 {
 	t_array		array;
 
-	if (argc == 1 || ft_error_check(argc, argv, &array) < 0)
+	if (argc == 1)
+		return (0);
+	if (ft_error_check(argc, argv, &array) < 0)
 		ft_error(&array);
 	if (array.len == 1)
 		return (0);
@@ -53,3 +55,10 @@ int	main(int argc, char *argv[])
 		ft_error(&array);
 	return (0);
 }
+
+// __attribute__((destructor))
+// void    destructor(void)
+// {
+// 	system("leaks -q push_swap");
+
+// }

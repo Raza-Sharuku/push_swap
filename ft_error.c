@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:27:53 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/17 20:33:45 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/17 21:31:53 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,8 @@ int	ft_error_check(int argc, char *argv[], t_array *array)
 
 	i = 1;
 	s_counter = 0;
+	if (ft_strlen(argv[1]) == 1 && (argv[1][0] == '-' || argv[1][0] == '+'))
+		return (-1);
 	while (argv[i] && i < argc)
 	{
 		if (argv[i][0] == 0)
