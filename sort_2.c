@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:02:01 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/13 19:53:59 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/17 11:49:44 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	four_five_stack(t_array *s)
 	}
 	if (s->flg == 2 && s->array[0] < s->array[1])
 		swap_b(s);
-	res = stack_control(s);
+	res = three_stack(s);
 	return (res);
 }
 

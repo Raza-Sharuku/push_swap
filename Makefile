@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+         #
+#    By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/19 10:38:14 by razasharuku       #+#    #+#              #
-#    Updated: 2023/04/16 16:04:40 by sraza            ###   ########.fr        #
+#    Updated: 2023/04/17 09:58:58 by razasharuku      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 NAME = $(NAME)
 NAME	=	push_swap 
-CFLAGS	=	-Wall -Wextra -Werror -fsanitize=address
+CFLAGS	=	-Wall -Wextra -Werror -g -fsanitize=address
 INC		=	-I./libs/libft/ -I./libs/ft_printf/
 
 SRCS	=	push_swap.c \
@@ -23,7 +23,7 @@ SRCS	=	push_swap.c \
 			push_swap_perform.c \
 			rotate_perform.c \
 			rev_rotate_perform.c \
-			sort.c \
+			sort_1.c \
 			sort_2.c \
 			sort_3.c \
 			sort_4.c \

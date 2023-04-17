@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   sort_1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:49:54 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/16 14:48:06 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/17 11:35:07 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ int	is_sorted(t_array *stack)
 {
 	int	i;
 
-	i = 0;
-	while (i < stack->len - 1)
+	i = 1;
+	while (i < stack->len)
 	{
-		if (stack->array[i] > stack->array[i + 1])
+		if (stack->array[i - 1] > stack->array[i])
 			return (-1);
 		i++;
 	}
@@ -82,13 +82,14 @@ int	stack_control(t_array *s)
 	int		result;
 
 	result = 0;
-	if (is_sorted(s) == 0)
-		return (0);
+	s->flg = 0;
+	// if (is_sorted(s) == 0)
+	// 	return (0);
 	if (s->len - s->flg <= 3)
 		result = three_stack(s);
-	if (s->len - s->flg > 3 && s->len - s->flg <= 6)
+	else if (s->len - s->flg > 3 && s->len - s->flg <= 6)
 		result = six_sort(s, 0);
-	if (s->len >= 7)
+	else if (s->len >= 7)
 		result = max_sort(s);
 	if (result == -1)
 		return (-1);

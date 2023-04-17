@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_5.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 16:03:13 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/16 20:48:14 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/17 10:47:53 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	rev_push_a(t_array *s, t_algo *a, int p, int mod)
 			p_negative_push(s, a);
 		// printf("a->max = %i\n", a->max);
 		// printf("a->push = %i\n", a->push);
-		if (s->array[0] >= a->div * p && (s->array[0] != a->max && s->array[0] != a->max - 1))
+		if (s->flg > 0 && s->array[0] >= a->div * p && (s->array[0] != a->max && s->array[0] != a->max - 1))
 		{
 			rev_rotate_rb(s);
 			a->rev++;

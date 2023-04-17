@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/16 20:08:34 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/17 10:15:34 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int argc, char *argv[])
 	// i = check_array(&array);
 	if (is_sorted(&array) == 0 || stack_control(&array) == 0)
 	{
-	// i = check_array(&array);
+		// i = check_array(&array);
 		free(array.array);
 		return (0);
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rev_rotate_perform.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:12:06 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/16 16:34:13 by sraza            ###   ########.fr       */
+/*   Updated: 2023/04/17 11:41:03 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void	*rev_rotate_ra(t_array *s)
 	int	i;
 	int	tmp;
 
-	i = s->len - 1;
+	i = s->len - 2;
 	if (s->len - s->flg < 2)
 		return (s);
 	else
 	{
 		tmp = s->array[s->len - 1];
-		while (i >= s->flg)
+		while (i >= 0 && i >= s->flg)
 		{
 			s->array[i + 1] = s->array[i];
 			i--;
@@ -45,7 +45,7 @@ void	*rev_rotate_rb(t_array *array)
 	else
 	{
 		tmp = array->array[0];
-		while (i < array->flg - 1)
+		while (array->flg > 0 && i < array->flg - 1)
 		{
 			array->array[i] = array->array[i + 1];
 			i++;
