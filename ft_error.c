@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:27:53 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/17 12:13:55 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/17 19:59:12 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static int	check_str(char *str)
 	if (ft_atoi_swap(str) > (long)INT_MAX)
 		return (-1);
 	list = ft_split(str, ' ');
-	if (list[0] == NULL)
+	if (list == NULL)
 		return (-1);
 	i = 0;
 	while (list[i])
