@@ -6,14 +6,14 @@
 #    By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/19 10:38:14 by razasharuku       #+#    #+#              #
-#    Updated: 2023/04/17 09:58:58 by razasharuku      ###   ########.fr        #
+#    Updated: 2023/04/17 12:20:36 by razasharuku      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 NAME = $(NAME)
 NAME	=	push_swap 
-CFLAGS	=	-Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS	=	-Wall -Wextra -Werror
 INC		=	-I./libs/libft/ -I./libs/ft_printf/
 
 SRCS	=	push_swap.c \

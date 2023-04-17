@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/17 10:15:34 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/17 12:15:14 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,14 @@ int	check_array(t_array *array)
 int	main(int argc, char *argv[])
 {
 	t_array		array;
-	// int i;
 
-	if (ft_error_check(argc, argv, &array) < 0)
+	if (argc == 1 || ft_error_check(argc, argv, &array) < 0)
 		ft_error();
+	if (array.len == 1)
+		return (0);
 	array.array = compress_array(&array);
-	// printf("\n---------  after compress --------\n");
-	// i = check_array(&array);
 	if (is_sorted(&array) == 0 || stack_control(&array) == 0)
 	{
-		// i = check_array(&array);
 		free(array.array);
 		return (0);
 	}

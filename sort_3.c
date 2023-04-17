@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 13:59:15 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/17 10:58:53 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/17 11:55:11 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,23 @@ k < 2 * a->divの状態ならrotateしていいということにする。
 int	push_alternate(t_array *s, t_algo *a, int p, int k)
 {
 	a->rot = 0;
-	
 	while (s->flg < s->len && (k < 2 * a->div) && (a->rot <= s->len))
 	{
-		while (s->flg < s->len && s->array[s->flg] > a->div * p && s->array[s->flg] <= a->div * (p + 1))
+		while (s->flg < s->len && s->array[s->flg]
+			> a->div * p && s->array[s->flg] <= a->div * (p + 1))
 		{
 			push_b(s);
 			k++;
 		}
-		while (s->flg < s->len && s->array[s->flg] > (a->div * (p + 1)) && s->array[s->flg] <= (a->div * (p + 2)))
+		while (s->flg < s->len && s->array[s->flg]
+			> (a->div * (p + 1)) && s->array[s->flg] <= (a->div * (p + 2)))
 		{
 			push_b(s);
 			rotate_b(s);
 			k++;
 		}
-		if (s->flg < s->len && (k < 2 * a->div) && s->array[s->flg] > a->div * (p + 2))
+		if (s->flg < s->len && (k < 2 * a->div)
+			&& s->array[s->flg] > a->div * (p + 2))
 		{
 			rotate_a(s);
 			a->rot++;
@@ -87,11 +89,6 @@ int	max_sort(t_array *s)
 			p = rev_push_a(s, a, p, 0);
 		if (p % 2 == 0)
 			p = push_rotate_a(s, a, p, 0);
-		// if (p < 1)
-		// {
-			// p = check_array(s);
-		// 	break ;
-		// }
 	}
 	free(a);
 	return (0);

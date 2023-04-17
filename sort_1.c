@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:49:54 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/17 11:35:07 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/17 11:56:28 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,6 @@ int	stack_control(t_array *s)
 
 	result = 0;
 	s->flg = 0;
-	// if (is_sorted(s) == 0)
-	// 	return (0);
 	if (s->len - s->flg <= 3)
 		result = three_stack(s);
 	else if (s->len - s->flg > 3 && s->len - s->flg <= 6)

@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 12:37:09 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/17 10:52:20 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/17 11:58:02 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	set_max_val(t_array *s, t_algo *a, int p, int mod)
 	{
 		if (s->flg >= i + 1 && s->array[s->flg - 1 - i] > a->max)
 			a->max = s->array[s->flg - 1 - i];
-		// printf("a->max = %i\n", a->max);
 		i++;
 	}
 	while (p % 2 == 1 && i < mod)
@@ -63,37 +62,17 @@ void	p_rev_rot(t_array *s, t_algo *a)
 	}
 }
 
-// void	last_push(t_array *s, t_algo *a, int p, int mod)
-// {
-// 	while (s->flg > 0 && a->push < mod && s->array[s->flg - 1] >= a->div * p)
-// 	{
-// 		while (s->flg > 0 && (s->array[s->flg - 1] == a->max || s->array[s->flg - 1] == a->max - 1))
-// 			p_positive_push(s, a);
-// 		if (s->flg > 0 && s->array[s->flg - 1] >= a->div * p && (s->array[s->flg - 1] != a->max && s->array[s->flg - 1] != a->max - 1))
-// 		{
-// 			rotate_b(s);
-// 			a->rot++;
-// 		}
-// 		if (a->push + a->rot >= mod)
-// 			p_rev_rot(s, a);
-// 	}
-// }
-
 int	push_rotate_a(t_array *s, t_algo *a, int p, int mod)
 {
-	// int i;
-
 	mod = set_max_val(s, a, p, mod);
 	while (s->flg > 0 && a->push < mod && s->array[s->flg - 1] >= a->div * p)
 	{
-		// if (p < 1)
-		// {
-		// 	last_push(s, a, p, mod);
-		// 	break ;
-		// }
-		while (a->push < mod && (s->array[s->flg - 1] == a->max || s->array[s->flg - 1] == a->max - 1))
+		while (a->push < mod && (s->array[s->flg - 1] == a->max
+				|| s->array[s->flg - 1] == a->max - 1))
 			p_positive_push(s, a);
-		if (s->flg > 0 && s->array[s->flg - 1] >= a->div * p && (s->array[s->flg - 1] != a->max && s->array[s->flg - 1] != a->max - 1))
+		if (s->flg > 0 && s->array[s->flg - 1] >= a->div * p
+			&& (s->array[s->flg - 1] != a->max && s->array[s->flg - 1]
+				!= a->max - 1))
 		{
 			rotate_b(s);
 			a->rot++;
@@ -101,7 +80,5 @@ int	push_rotate_a(t_array *s, t_algo *a, int p, int mod)
 		if (a->push + a->rot >= mod)
 			p_rev_rot(s, a);
 	}
-	// printf("\n---------  after p positive --------\n");
-	// i = check_array(s);
 	return (p - 1);
 }
