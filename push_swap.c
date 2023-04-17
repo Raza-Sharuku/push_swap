@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/17 17:45:37 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/17 20:11:12 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-void	ft_error(void)
+void	ft_error(t_array *s)
 {
+	free(s->array);
 	write(2, "Error\n", 6);
 	exit(1);
 }
@@ -39,7 +40,7 @@ int	main(int argc, char *argv[])
 	t_array		array;
 
 	if (argc == 1 || ft_error_check(argc, argv, &array) < 0)
-		ft_error();
+		ft_error(&array);
 	if (array.len == 1)
 		return (0);
 	array.array = compress_array(&array);
@@ -49,13 +50,13 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	if (is_sorted(&array) == -1 || stack_control(&array) == -1)
-		ft_error();
+		ft_error(&array);
 	return (0);
 }
 
-// __attribute__((destructor))
-// void    destructor(void)
-// {
-// 	system("leaks -q push_swap");
+__attribute__((destructor))
+void    destructor(void)
+{
+	system("leaks -q push_swap");
 
-// }
+}

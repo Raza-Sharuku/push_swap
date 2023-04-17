@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:27:53 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/17 12:13:55 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/17 20:10:29 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,14 @@ static int	check_str(char *str)
 	if (ft_atoi_swap(str) > (long)INT_MAX)
 		return (-1);
 	list = ft_split(str, ' ');
-	if (list[0] == NULL)
+	if (list == NULL)
 		return (-1);
 	i = 0;
 	while (list[i])
 		i++;
+	ft_free_swap(list);
 	if ((i - 1) >= 1)
 		return (1);
-	ft_free_swap(list);
 	return (0);
 }
 
