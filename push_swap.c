@@ -6,11 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:46:59 by sraza             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/04/17 20:11:12 by sraza            ###   ########.fr       */
-=======
-/*   Updated: 2023/04/17 20:30:32 by razasharuku      ###   ########.fr       */
->>>>>>> 858fc1678a5894d63df378c57b0259b04f47c2c9
+/*   Updated: 2023/04/17 21:06:36 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +52,4 @@ int	main(int argc, char *argv[])
 	if (is_sorted(&array) == -1 || stack_control(&array) == -1)
 		ft_error(&array);
 	return (0);
-}
-
-__attribute__((destructor))
-void    destructor(void)
-{
-	system("leaks -q push_swap");
-
 }
